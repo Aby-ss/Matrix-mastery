@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <style>
+      body {
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: 133.33%; /* (1 / 0.75) = 133.33% to maintain original content size */
+      }
+    </style>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,6 +70,27 @@
 
       .short_section {
         height: 20px;
+      }
+
+      .paragraph-spacing {
+        margin-bottom: 55px; /* Adjust the value as per your desired spacing */
+      }
+
+      .header-spacing {
+        margin-bottom: 55px;
+      }
+
+      .center-paragraph {
+        text-align: center;
+      }
+
+      .longer-section {
+        min-height: 550px;
+        margin-top: 15px;
+      }
+
+      .tbl-section {
+        max-height: 1650px;
       }
 
       /* Curved bg with plain CSS */
@@ -172,10 +202,11 @@
     </style>
   </head>
   <body>
-    <section class="dark short_section">
-      <h1>♟ Welcome to MATRIX MASTERY.</h1>
-      <p>Welcome to "Matrix Mastery: Unraveling the Digital Veil," an immersive and enlightening website project that delves deep into the enigmatic world of the Matrix. Designed to educate and empower individuals, this platform offers a comprehensive exploration of the inner workings of the Matrix, complemented by the profound teachings of the esteemed Tate.</p>
-      <div class="curve"></div>
+    <section class="dark short_section longer-section">
+      <h1 class="header-spacing">♟ Welcome to MATRIX MASTERY.</h1>
+      <p class="paragraph-spacing">Welcome to "Matrix Mastery: Unraveling the Digital Veil," an immersive and enlightening website project that delves deep into the enigmatic world of the Matrix. Designed to educate and empower individuals, this platform offers a comprehensive exploration of the inner workings of the Matrix, complemented by the profound teachings of the esteemed Tate.</p>
+      <h2 class="header-spacing">Escape the System.</h2>
+      <!-- <div class="curve"></div> -->
     </section>
 
     <section>
@@ -190,35 +221,56 @@
     </section>
 
     <section class="dark">
-      <h1>Escape the System. The REAL world awaits you</h1>
-      <p>According to Tate, escaping the Matrix involves recognizing the illusions that society imposes upon individuals. He would stress the importance of critical thinking and questioning the mainstream narratives that dictate our lives. Tate would emphasize the need for self-empowerment, advocating for taking personal responsibility and actively pursuing one's own goals and desires, rather than being passively controlled by external forces.</p>
-      <p>         </p>
-      <p>         </p>
-
-      <p>Furthermore, Tate would highlight the significance of embracing discomfort and facing adversity head-on. He would argue that escaping the Matrix demands a willingness to step outside of comfort zones, confront fears, and challenge the status quo. In his perspective, breaking free from the Matrix is a journey of self-discovery, where individuals must cultivate their own unique path, unbound by societal expectations.</p>
-      <p>         </p>
-
-      <p>         </p>
-      <p>Overall, Andrew Tate's viewpoint on escaping the Matrix would revolve around a combination of self-empowerment, critical thinking, and a relentless pursuit of personal freedom, urging individuals to seize control of their lives and create their own realities.</p>
+      <h1 class="header-spacing">Escape the System. The REAL world awaits you</h1>
+      <p class="paragraph-spacing">According to Tate, escaping the Matrix involves recognizing the illusions that society imposes upon individuals. He would stress the importance of critical thinking and questioning the mainstream narratives that dictate our lives. Tate would emphasize the need for self-empowerment, advocating for taking personal responsibility and actively pursuing one's own goals and desires, rather than being passively controlled by external forces.</p>
+      <p class="paragraph-spacing">Furthermore, Tate would highlight the significance of embracing discomfort and facing adversity head-on. He would argue that escaping the Matrix demands a willingness to step outside of comfort zones, confront fears, and challenge the status quo. In his perspective, breaking free from the Matrix is a journey of self-discovery, where individuals must cultivate their own unique path, unbound by societal expectations.</p>
+      <p class="paragraph-spacing">Overall, Andrew Tate's viewpoint on escaping the Matrix would revolve around a combination of self-empowerment, critical thinking, and a relentless pursuit of personal freedom, urging individuals to seize control of their lives and create their own realities.</p>
     </section>
 
-    <section class="red">
-      <h1>Escape the System. The REAL world awaits you</h1>
-      <p>The Matrix is a system built around the new world order that has no other sole purpose than control the slaves and make the rich richer while keeping the poor poorer and making them stay poor for ETERNITY. But, there is hope.</p>
+    <section class="red tbl-section">
+      <style>
 
-      <div class="wave">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
+        
+
+        table {
+          width: 1500px;
+          height: 1500px;
+          border-collapse: collapse;
+          border-radius: 10px;
+          overflow: hidden;
+          margin-bottom: 60px;
+        }
+      
+        td {
+          border: 4px solid black;
+          padding: 10px;
+        }
+      </style>
+    
+      <table>
+        <tr>
+          <td>Row 1</td>
+        </tr>
+        <tr>
+          <td>Row 2</td>
+        </tr>
+        <tr>
+          <td>Row 3</td>
+        </tr>
+        <tr>
+          <td>Row 4</td>
+        </tr>
+        <tr>
+          <td>Row 5</td>
+        </tr>
+      </table>
+
+
     </section>
 
 
-    <section>
-      <h1>Escape NOW or stay a brokie forever</h1>
+    <section class="longer-section">
+      <h1 class="header-spacing">Escape NOW or stay a brokie forever</h1>
       <p>- Scholaristict_</p>
     </section>
 
