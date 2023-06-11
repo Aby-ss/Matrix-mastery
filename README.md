@@ -1,5 +1,6 @@
 ## Matrix Mastery : The REAL World awaits you ♟
-![image](https://github.com/Aby-ss/Matrix-mastery/assets/103417697/cef93c52-5119-4c9f-884f-c68013c502d8)
+![image](https://github.com/Aby-ss/Matrix-mastery/assets/103417697/d2bc0267-0341-4c31-80a1-347e5c6cd5cd)
+
 **Welcome to "Matrix Mastery: Unraveling the Digital Veil,"** an immersive and **enlightening website project that delves deep into the enigmatic world of the Matrix**. Designed to educate and empower individuals, this platform offers a comprehensive exploration of the inner workings of the Matrix, complemented by the profound teachings of the esteemed Tate.
 
 **The Matrix, a digital realm that exists parallel to our own reality, has captivated our imaginations since its inception. It serves as a powerful metaphor for the interconnectedness of technology, consciousness, and the human experience. As you embark on this journey of discovery, prepare to have your perceptions challenged and your understanding expanded. **Through a meticulously curated collection of articles, videos, and interactive experiences**, Matrix Mastery takes you on a captivating voyage through the various layers of the Matrix. Gain insights into its origins, its purpose, and the fundamental principles that govern its existence. From its inception to its evolution, this project provides an **in-depth exploration of the philosophical, scientific, and cultural dimensions of this groundbreaking concept.
@@ -11,3 +12,5 @@
 Engaging in the Matrix Mastery community is an integral part of this website project. Connect with fellow truth seekers, engage in vibrant discussions, and share your own insights and experiences. Collaborate on projects that challenge the boundaries of human understanding, and together, forge new paths towards expanded consciousness. Whether you are a seasoned seeker or a curious newcomer, Matrix Mastery offers an extraordinary opportunity to deepen your understanding of the Matrix and explore the profound teachings of Tate. Embark on this transformative journey, and unlock the mysteries of the digital veil that has enveloped our reality for so long.
 
 _**Join us at Matrix Mastery and be prepared to awaken your mind, expand your consciousness, and embrace a new paradigm of understanding. The Matrix awaits your exploration._
+
+![image](https://github.com/Aby-ss/Matrix-mastery/assets/103417697/6812ef02-45b1-4e54-af3b-903ad2ab08d0)
