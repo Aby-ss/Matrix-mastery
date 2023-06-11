@@ -206,11 +206,34 @@
       /* SVG background image via https://haikei.app/ */
 
 
+      .spacer {
+        aspect-ratio: 960/390;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
       .layer1 {
-        background-image: url('./layer1.svg');
+        background-image: url('./layered-peaks-top.svg');
       }
       .layer2 {
-        background-image: url('./layer2.svg');
+        background-image: url('./layered-peaks-top.svg');
+      }
+
+      .spacer2 {
+        aspect-ratio: 960/390;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .bottom-layer1 {
+        background-image: url('./layered-peaks-bottom.svg');
+      }
+      .bottom-layer2 {
+        background-image: url('./layered-peaks-bottom.svg');
       }
 
       .flip {
@@ -236,12 +259,16 @@
     </style>
   </head>
   <body>
-    <section class="dark short_section longer-section">
+
+    <div class="spacer layer1"></div>
+
+    <section class="short_section longer-section" style="margin-top: -650px; margin-bottom: 500px;">
       <h1 class="header-spacing">♟ Welcome to MATRIX MASTERY.</h1>
       <p class="paragraph-spacing">Welcome to "Matrix Mastery: Unraveling the Digital Veil," an immersive and enlightening website project that delves deep into the enigmatic world of the Matrix. Designed to educate and empower individuals, this platform offers a comprehensive exploration of the inner workings of the Matrix, complemented by the profound teachings of the esteemed Tate.</p>
       <h2 class="header-spacing">Escape the System.</h2>
       <!-- <div class="curve"></div> -->
     </section>
+
 
     <section class="grey">
       <h1>What is Matrix Mastery?</h1>
@@ -249,9 +276,10 @@
       <p>According to Tate, the Matrix is a grand illusion, a construct designed to control and manipulate human beings. In this simulated reality, individuals live their lives, oblivious to the fact that their experiences are mere fabrications. The Matrix feeds on human energy, harnessing the electrical signals produced by the brain. It presents a seamless virtual world that deceives the senses, creating a captivating mirage of what we believe to be real. Tate's description of the Matrix portrays it as a powerful force that captivates and enslaves humanity, blurring the lines between the physical and the digital realms.</p>
     </section>
 
-    <section class="grey">
-      <h2>Escape the System. The REAL world awaits you</h2>
-    </section>
+    <div class="spacer2 bottom-layer1"></div>
+    <div class="spacer layer1">
+        <h1>ESCAPE THE MUNDANE !</h1>
+    </div>
 
     <section class="dark">
       <h1 class="header-spacing">Escape the System. The REAL world awaits you</h1>
