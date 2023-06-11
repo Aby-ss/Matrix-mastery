@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <style>
+      body {
+        transform: scale(0.65);
+        transform-origin: top left;
+        width: 153.846%; /* (1 / 0.75) = 133.33% to maintain original content size */
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix-Mastery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+
+    <style>
+      h1 {
+        font-size: 4rem;
+        text-align: center; /* Center align the heading */
+        max-width: 800px; /* Limit the maximum width of the heading */
+        margin: 0 auto; /* Center the heading horizontally */
+        max-width: 100%;
+      }
+      p {
+        font-size: 1.5rem;
+        text-align: left; /* Center align the paragraphs */
+        max-width: 1200px; /* Limit the maximum width of the paragraphs */
+        margin: 0 auto; /* Center the paragraphs horizontally */
+      }
+      body {
+        margin: 0;
+        font-family: 'Prompt', sans-serif;
+        color: white;
+        background: #212121;
+        overflow-x: hidden;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 450px;
+        padding-top: 100px;
+      }
+
+      .green {
+        background: #205ed0;
+      }
+
+      .red {
+        background: #dd3f31;
+      }
+
+      .gold {
+        background: #ccee23;
+        overflow: hidden;
+      }
+
+      .dark {
+        background: #333333;
+      }
+
+      .grey {
+        background-color: rgb(89, 89, 89);
+        color: #f7f7f7;
+
+      }
+
+
+      .short_section {
+        height: 20px;
+      }
+
+      .paragraph-spacing {
+        margin-bottom: 55px; /* Adjust the value as per your desired spacing */
+      }
+
+      .header-spacing {
+        margin-bottom: 55px;
+        max-width: 100%;  
+      }
+
+      .center-paragraph {
+        text-align: center;
+      }
+
+      .longer-section {
+        min-height: 550px;
+        margin-top: 15px;
+      }
+
+      .tbl-section {
+        max-height: 1650px;
+      }
+
+      .banner-section {
+        background-color: #205ed0;
+        height: 200px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: -10px; /* Adjust the negative margin to increase the top size */
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      .small-banner-section {
+        background-color: #205ed0;
+        height: 100px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: 200px; /* Adjust the negative margin to increase the top size */
+        margin-bottom: 20px;
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      .red-banner-section {
+        background-color: #d02020;
+        height: 250px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: 20px; /* Adjust the negative margin to increase the top size */
+        margin-bottom: 20px;
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      /* Curved bg with plain CSS */
+
+      .curve {
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+      }
+
+      .curve::before {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 55%;
+        height: 100%;
+        transform: translate(85%, 60%);
+        background-color: #333333;
+      }
+
+      .curve::after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 55%;
+        height: 100%;
+        background-color: #3c31dd;
+        transform: translate(-4%, 40%);
+        z-index: -1;
+      }
+
+      /* Bubble bg with plain CSS */
+
+      .bubble::after {
+        content: '';
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        width: 100%;
+        background-color: #333333;
+        height: 15%;
+      }
+
+      /* Curved bg with SVG via https://www.shapedivider.app/ */
+
+      .wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .wave svg {
+        position: relative;
+        display: block;
+        width: calc(103% + 1.3px);
+        height: 262px;
+      }
+
+      .wave .shape-fill {
+        fill: #333333;
+      }
+
+      /* SVG background image via https://haikei.app/ */
+
+
+      .layer1 {
+        background-image: url('./layer1.svg');
+      }
+      .layer2 {
+        background-image: url('./layer2.svg');
+      }
+
+      .flip {
+        transform: rotate(180deg);
+      }
+
+      /* Blobs SVG background image via https://haikei.app/ */
+
+      .blob-motion {
+        position: absolute;
+        transform: translateY(-20%);
+        z-index: 0;
+      }
+
+      .blob-content {
+        z-index: 1;
+      }
+
+      .blobs {
+        width: 100%;
+        background: url('./blobs.svg') no-repeat bottom / cover;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="dark short_section longer-section">
+      <h1 class="header-spacing">♟ Welcome to MATRIX MASTERY.</h1>
+      <p class="paragraph-spacing">Welcome to "Matrix Mastery: Unraveling the Digital Veil," an immersive and enlightening website project that delves deep into the enigmatic world of the Matrix. Designed to educate and empower individuals, this platform offers a comprehensive exploration of the inner workings of the Matrix, complemented by the profound teachings of the esteemed Tate.</p>
+      <h2 class="header-spacing">Escape the System.</h2>
+      <!-- <div class="curve"></div> -->
+    </section>
+
+    <section class="grey">
+      <h1>What is Matrix Mastery?</h1>
+      <h2>For years we have been fooled by the matrix propaganda, not anymore</h2>
+      <p>According to Tate, the Matrix is a grand illusion, a construct designed to control and manipulate human beings. In this simulated reality, individuals live their lives, oblivious to the fact that their experiences are mere fabrications. The Matrix feeds on human energy, harnessing the electrical signals produced by the brain. It presents a seamless virtual world that deceives the senses, creating a captivating mirage of what we believe to be real. Tate's description of the Matrix portrays it as a powerful force that captivates and enslaves humanity, blurring the lines between the physical and the digital realms.</p>
+    </section>
+
+    <section class="grey">
+      <h2>Escape the System. The REAL world awaits you</h2>
+      <img src="C:/Users/hadir/Documents/VSC - Projects/Websites/phone_screen.jpeg" style="width: 500px; height: 500px"/>
+    </section>
+
+    <section class="dark">
+      <h1 class="header-spacing">Escape the System. The REAL world awaits you</h1>
+      <p class="paragraph-spacing">According to Tate, escaping the Matrix involves recognizing the illusions that society imposes upon individuals. He would stress the importance of critical thinking and questioning the mainstream narratives that dictate our lives. Tate would emphasize the need for self-empowerment, advocating for taking personal responsibility and actively pursuing one's own goals and desires, rather than being passively controlled by external forces.</p>
+      <p class="paragraph-spacing">Furthermore, Tate would highlight the significance of embracing discomfort and facing adversity head-on. He would argue that escaping the Matrix demands a willingness to step outside of comfort zones, confront fears, and challenge the status quo. In his perspective, breaking free from the Matrix is a journey of self-discovery, where individuals must cultivate their own unique path, unbound by societal expectations.</p>
+      <p class="paragraph-spacing">Overall, Andrew Tate's viewpoint on escaping the Matrix would revolve around a combination of self-empowerment, critical thinking, and a relentless pursuit of personal freedom, urging individuals to seize control of their lives and create their own realities.</p>
+    </section>
+
+    <section class="tbl-section">
+      <style>
+        .row {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+        
+        .row h1 {
+          margin: 0;
+          font-size: 35px;
+          width: 50%;
+        }
+        
+        .row p {
+          width: 50%;
+        }
+        
+        .images-container {
+          margin-right: 150px;
+          margin-top: 150px;
+        }
+
+        .paragraph-width {
+          width: 65%; /* Set the width to 100% for the paragraphs */
+        }
+        
+        .header-align {
+          width: 100%;
+          font-size: 60px;
+          margin-bottom: 75px;
+        }
+
+        .longer-div {
+          margin-bottom: 75px;
+        }
+      </style>
+      
+      <h1 class="header-align banner-section">Matrix Mastery Curriculum</h1>
+      <div class="row">
+        <h1>Several Modern Money Making Methods</h1>
+        <img src="dollar-banknote.png" class="images-container"/>
+        <p class="paragraph-width">The ultimate destination for those ready to break free from the limitations of traditional thinking and embrace the world of modern money-making. Here, we strip away the illusions of a mundane life and equip you with the unfiltered knowledge and ruthless strategies needed to conquer the digital landscape. From e-commerce domination to relentless affiliate marketing tactics, we'll guide you through the unconventional business models and entrepreneurial techniques that defy societal norms. No more playing by their rules – it's time to unleash your inner warrior, seize control of your financial destiny, and rise above the masses. Join us on this unapologetic journey, and let's create a reality where success is yours for the taking.</p>
+      </div>
+      
+      <div class="row longer-div">
+        <h1>The Mindset for business & life success</h1>
+        <img src="brain_.png" class="images-container"/>
+        <p class="paragraph-width">In Matrix Mastery, we cultivate the unyielding mindset necessary for true business success. In this dog-eat-dog world, only the mentally strong and resilient prevail. We go beyond the conventional business strategies and dive deep into the mindset that separates the winners from the rest. Prepare to embrace the relentless pursuit of excellence, the unwavering belief in your abilities, and the audacity to challenge the status quo. Our cutting-edge resources, thought-provoking insights, and battle-tested techniques will empower you to conquer obstacles, embrace risk, and seize opportunities with unwavering confidence. Step into the arena with us, embrace the right mindset, and unlock your true potential for greatness.</p>
+      </div>
+      
+    </section>
+
+
+    <section class="longer-section">
+      <style>
+        .section {
+          background-color: darkgrey;
+          padding: 20px;
+        }
+      
+        .box {
+          background-color: #333;
+          color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+          width: 2000px;
+          display: flex;
+        }
+      
+        .box-content {
+          flex: 1;
+          margin-left: 20px; /* Add a margin to create space between the header and paragraph */
+        }
+      
+        .box h2 {
+          margin-top: 85px;
+          max-width: 500px;
+          margin-left: 75px;
+        }
+
+        .box h1 {
+          margin-top: 130px;
+          max-width: 500px;
+          margin-left: 145px;
+          font-size: 45px;
+        }
+      
+        .box p {
+          margin-bottom: 0;
+        }
+
+        .left-margin {
+          margin-left: 70px;
+        }
+
+        .image-container {
+          margin-right: 20px;
+        }
+    
+        .image-container img {
+          width: 130px; /* Adjust the width as needed */
+          display: grid;
+          place-items: center;
+          height: 130px; /* Set the desired height for the container */
+          align-items: center;
+          justify-content: center;
+
+          background-color: #333;
+          color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+        }
+      </style>
+      <h1 class="header-spacing banner-section">Services we provide are the basis to escaping the system</h1>
+
+      <div class="box">
+    <div class="image-container">
+      <img src="dollar-banknote.png" alt="Money Making Methods">
+    </div>
+    <h2>Certified Money Making Methods: Online Businesses and Agencies</h2>
+    <div class="box-content">
+      <p>A final venue for individuals determined to break free from the constraints of conventional thinking and enter the world of modern money-making. Here, we dispel the illusions of everyday life and provide you with uncensored knowledge and merciless techniques for conquering the digital terrain. We'll walk you through the unorthodox company structures and entrepreneurial strategies that transcend cultural standards, from e-commerce dominance to persistent affiliate marketing tactics. It's time to release your inner warrior, claim charge of your financial future, and rise above the rabble. Join us on this unapologetic adventure, and together we can create a reality where success is yours to have.</p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="image-container">
+      <img src="brain_.png" alt="Mindset Coaching">
+    </div>
+    <h1>Mindset Coaching</h1>
+    <div class="box-content">
+      <p>A transformative service curated to provide you with the most powerful advice for both life and business, inspired by the teachings of the indomitable Andrew Tate. Prepare to uncover a treasure trove of invaluable wisdom, distilled from Tate's unique perspective and unapologetic approach. Dive deep into the realms of personal growth, mindset mastery, and strategic decision-making, as we guide you towards achieving unparalleled success in all aspects of your life. Whether you seek guidance in relationships, entrepreneurship, or personal development, our carefully curated collection of life lessons will empower you to break free from mediocrity and embrace a life of limitless possibilities. Embrace the unfiltered truths, seize the strategic advantages, and embark on a remarkable journey towards self-empowerment and prosperity. It's time to rewrite your story and unlock the secrets to living life on your own terms with "The Right Life Lessons."</p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="image-container">
+      <img src="necktie_.png" alt="Business Consulting">
+    </div>
+    <h1>Business Consulting</h1>
+    <div class="box-content">
+      <p class="left-margin">Business Consulting: Unlock Your Business's Full Potential</p>
+      <p class="left-margin">Our business consulting services are designed to ignite transformation and unlock the full potential of your venture. With our expert guidance, strategic insights, and proven methodologies, we empower you to navigate the complex business landscape with confidence and achieve remarkable results. Whether you're a startup seeking to establish a strong foundation or an established company aiming for growth and expansion, our experienced consultants provide personalized solutions tailored to your unique challenges and goals. From refining your business model and optimizing operations to devising effective marketing strategies and driving profitability, we are your trusted partner in unlocking the success and prosperity your business deserves. Together, let's break barriers, seize opportunities, and elevate your business to new heights.</p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="image-container">
+      <img src="pound-banknote_.png" alt="Financial Education">
+    </div>
+    <h1>Financial Education</h1>
+    <div class="box-content">
+      <p class="left-margin">Financial Education: Empower Your Wealth Journey</p>
+      <p class="left-margin">come to our comprehensive financial education services, where we empower you to take control of your financial destiny. Our expert guidance and educational resources are designed to equip you with the knowledge and skills necessary to make informed financial decisions and build a secure future. From understanding the basics of budgeting and saving to mastering the intricacies of investing and wealth creation, we provide step-by-step guidance tailored to your unique financial goals. Our experienced educators will demystify complex financial concepts, share practical strategies for managing money effectively, and offer insights into generating multiple streams of income. With our financial education services, you'll gain the confidence and tools to navigate the financial landscape, maximize your earning potential, and create a life of financial freedom. Let's embark on this empowering journey together and unlock the path to lasting wealth and prosperity.</p>
+    </div>
+  </div>
+
+  <p>Escape Now</p>
+    </section>
+    
+    <section>
+      <div class="banner-section">
+        <h1>Wake up Neo. Wake up to reality.</h1>
+      </div>
+    </section>
+
+
+    <style>
+      .section_ {
+        display: flex;
+        justify-content: center; /* Center the boxes horizontally */
+        align-items: center; /* Center the boxes vertically */
+        margin-top: -250px;
+      }
+    
+      .container {
+        display: flex;
+        justify-content: center; /* Center the boxes horizontally within the container */
+      }
+    
+      .box_ {
+        background-color: #333;
+        width: 35%; /* Adjust the width as needed */
+        padding: 20px;
+        border-radius: 10px; /* Add border-radius to create rounded corners */
+        margin: 35px; /* Adjust the margin to control the spacing */
+      }
+    </style>
+    
+    <section class="section_">
+      <h1>Resources:</h1>
+      <div class="container">
+        <div class="box_">
+          <p style="text-align: center;">Discover a treasure trove of educational documents that will transform your understanding of finances and money-making strategies. Our meticulously crafted resources provide in-depth insights into the world of personal finance, investing, and entrepreneurial endeavors. Unlock the secrets to building wealth, creating multiple income streams, and achieving financial independence. From comprehensive guides on budgeting and saving to expert tips on generating passive income and mastering investment opportunities, our education documents are your roadmap to financial success. Take charge of your financial future and harness the knowledge to thrive in the ever-changing financial landscape.</p>
+        </div>
+        <div class="box_">
+          <p style="text-align: center;">Unleash your true potential with our collection of helping documents that combine the power of self-help strategies and software training. Dive into a world of personal development, mindset mastery, and practical tools to enhance your productivity and efficiency. Our carefully curated resources provide step-by-step guidance on utilizing software applications to streamline your workflows, improve time management, and boost your overall effectiveness. Additionally, our self-help documents delve into empowering techniques, such as goal-setting, positive mindset cultivation, and effective communication skills. Embrace personal growth, maximize your potential, and embrace a life of success with our empowering helping documents.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <svg
+        class="blob-motion"
+        id="visual"
+        viewBox="0 0 960 540"
+        width="960"
+        height="540"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+      >
+        <g transform="translate(450.7256843113689 283.4942824330989)">
+          <path
+            id="blob1"
+            d="M148.7 -134.9C193.7 -103.7 231.9 -51.9 232.4 0.6C233 53 196.1 106.1 151.1 128.6C106.1 151.1 53 143 -4.4 147.4C-61.8 151.8 -123.5 168.5 -151.2 146C-178.8 123.5 -172.4 61.8 -172.8 -0.4C-173.1 -62.5 -180.3 -124.9 -152.6 -156.1C-124.9 -187.3 -62.5 -187.1 -5.3 -181.8C51.9 -176.5 103.7 -166 148.7 -134.9"
+            fill="#205ed0" 
+          ></path>
+        </g>
+      </svg>
+    </section>
+
+
+    <section>
+      <h1 style="margin-top: -425px;">Escape NOW or stay a brokie forever</h1>
+      <p>- Scholaristict_</p>
+    </section>
+
+    <section>
+      <h1 class="red-banner-section">Take the RED pill. Escape the mundane. </h1>
+      <h1 class="red-banner-section">Claw back the FREEDOM you DESERVE.</h1>
+    </section>
+
+    <section>
+      <h2>Terms and Conditions Applied.</h2>
+      <p>By accessing and using our website, you agree to abide by our terms and conditions. These terms outline the rules and regulations governing your use of our services and website content. Please read them carefully to ensure a mutually beneficial and safe experience.</p>
+      <h2>Disclaimer : </h2>
+      <p>The information provided on our website is for educational and informational purposes only. While we strive to provide accurate and up-to-date content, we make no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, suitability, or availability of the information. Any reliance you place on such information is strictly at your own risk.</p>
+      <p>We encourage you to consult with professionals, such as financial advisors or legal experts, before making any financial or business decisions based on the information provided on our website. We are not liable for any losses or damages, direct or indirect, that may arise from the use of our website or the information contained therein.</p>
+      <p>Remember, your success depends on your own efforts, decisions, and abilities. Results may vary based on individual circumstances and dedication. We are here to provide guidance and knowledge, but ultimately, it is up to you to take action and apply the principles in your own life and business endeavors.</p>
+      <h1 class="small-banner-section">The war against the MATRIX has just begun</h1>
+      <p>We are honored to be part of your journey towards personal and financial growth.</p>
+    </section>
+  </body>
+</html>
