@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+      body {
+        transform: scale(0.65);
+        transform-origin: top left;
+        width: 153.846%; /* (1 / 0.75) = 133.33% to maintain original content size */
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix-Mastery Contacts</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+
+    <style>
+      h1 {
+        font-size: 4rem;
+        text-align: center; /* Center align the heading */
+        max-width: 800px; /* Limit the maximum width of the heading */
+        margin: 0 auto; /* Center the heading horizontally */
+        max-width: 100%;
+      }
+      p {
+        font-size: 1.5rem;
+        text-align: left; /* Center align the paragraphs */
+        max-width: 1200px; /* Limit the maximum width of the paragraphs */
+        margin: 0 auto; /* Center the paragraphs horizontally */
+      }
+      body {
+        margin: 0;
+        font-family: 'Prompt', sans-serif;
+        color: white;
+        background: #212121;
+        overflow-x: hidden;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 450px;
+        padding-top: 100px;
+      }
+
+      .green {
+        background: #0FA235;
+      }
+
+      .red {
+        background: #dd3f31;
+      }
+
+      .gold {
+        background: #ccee23;
+        overflow: hidden;
+      }
+
+      .dark {
+        background: #333333;
+      }
+
+      .grey {
+        background-color: rgb(89, 89, 89);
+        color: #f7f7f7;
+
+      }
+
+
+      .short_section {
+        height: 20px;
+      }
+
+      .paragraph-spacing {
+        margin-bottom: 55px; /* Adjust the value as per your desired spacing */
+      }
+
+      .header-spacing {
+        margin-bottom: 55px;
+        max-width: 100%;  
+      }
+
+      .center-paragraph {
+        text-align: center;
+      }
+
+      .longer-section {
+        min-height: 550px;
+        margin-top: 15px;
+      }
+
+      .tbl-section {
+        max-height: 1650px;
+      }
+
+      .banner-section {
+        background-color: #0FA235;
+        height: 200px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: -10px; /* Adjust the negative margin to increase the top size */
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      .small-banner-section {
+        background-color: #0e8b30;
+        height: 100px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: 200px; /* Adjust the negative margin to increase the top size */
+        margin-bottom: 20px;
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      .red-banner-section {
+        background-color: #0b842c;
+        height: 250px;
+        width: 350vw; /* Set the width to 100% of the viewport width */
+        margin-top: 20px; /* Adjust the negative margin to increase the top size */
+        margin-bottom: 20px;
+        display: flex; /* Enable flexbox layout */
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+      }
+
+      /* Curved bg with plain CSS */
+
+      .curve {
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+      }
+
+      .curve::before {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 55%;
+        height: 100%;
+        transform: translate(85%, 60%);
+        background-color: #333333;
+      }
+
+      .curve::after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 55%;
+        height: 100%;
+        background-color: rgb(47, 211, 35);
+        transform: translate(-4%, 40%);
+        z-index: -1;
+      }
+
+      /* Bubble bg with plain CSS */
+
+      .bubble::after {
+        content: '';
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        width: 100%;
+        background-color: #333333;
+        height: 15%;
+      }
+
+      /* Curved bg with SVG via https://www.shapedivider.app/ */
+
+      .wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .wave svg {
+        position: relative;
+        display: block;
+        width: calc(103% + 1.3px);
+        height: 262px;
+      }
+
+      .wave .shape-fill {
+        fill: #333333;
+      }
+
+      /* SVG background image via https://haikei.app/ */
+
+
+      .spacer {
+        aspect-ratio: 960/390;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .layer1 {
+        background-image: url('./layered-peaks-top.svg');
+      }
+      .layer2 {
+        background-image: url('./layered-peaks-top.svg');
+      }
+
+      .spacer2 {
+        aspect-ratio: 960/390;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .bottom-layer1 {
+        background-image: url('./layered-peaks-bottom.svg');
+      }
+      .bottom-layer2 {
+        background-image: url('./layered-peaks-bottom.svg');
+      }
+
+      .flip {
+        transform: rotate(180deg);
+      }
+
+      /* Blobs SVG background image via https://haikei.app/ */
+
+      .blob-motion {
+        position: absolute;
+        transform: translateY(-20%);
+        z-index: 0;
+      }
+
+      .blob-content {
+        z-index: 1;
+      }
+
+      .blobs {
+        width: 100%;
+        background: url('./blobs.svg') no-repeat bottom / cover;
+      }
+    </style>
+</head>
+<body>
+    <div class="spacer2 bottom-layer1"></div>
+    <div class="spacer layer1">
+        <h1>Contact Us</h1>
+    </div>
+</body>
